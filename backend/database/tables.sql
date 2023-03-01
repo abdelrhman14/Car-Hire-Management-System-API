@@ -41,6 +41,16 @@ CREATE TABLE Booking (
 
 );
 
+-- check validation 1
+DELIMITER //
+CREATE TRIGGER before_booking BEFORE INSERT ON Booking
+FOR EACH ROW
+BEGIN
+   if NEW.Return_Date > DATE_ADD(NEW.Hire_Date, INTERVAL 6 DAY)  then
+   SET MESSAGE_TEXT = 'Invalid ReturnDate';
+  end if;
+END//
+
 
 CREATE TABLE Invoice (
   "Invoice_Id" SERIAL NOT NULL ,
@@ -52,6 +62,7 @@ CREATE TABLE Invoice (
   FOREIGN KEY ("Customer_Id") REFERENCES Customer("Customer_Id"),
   FOREIGN KEY ("Booking_Id") REFERENCES Booking("Booking_Id")
 );
+
 
 CREATE TABLE Email_Text(
   "Email_Text_Id" SERIAL NOT NULL,
