@@ -1,21 +1,12 @@
 from flask import Flask
 import psycopg2
 from flask import jsonify, request
-#from flask_mysqldb import MySQL
 from http import HTTPStatus
-#import MySQLdb .cursors
-#from waitress import serve
 
 
 
 app = Flask(__name__)
 conn = psycopg2.connect(database="backend_system", user="postgres", password="246800", host="localhost", port="5432")
-# configurations
-# app.config["MYSQL_USER"] = "root"
-# app.config["MYSQL_PASSWORD"] = "246800"
-# app.config["MYSQL_DATABASE_DB"] = "system_backend"
-# app.config["MYSQL_HOST"] = "localhost"
-# mysql = MySQL(app)
 
 # Connect to the database
 
