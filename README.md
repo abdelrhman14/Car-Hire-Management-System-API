@@ -11,5 +11,14 @@
 
 5- An Endpoint to Create Delete : http://127.0.0.1:5000//del_customer/<int:customer_id>/
 
+### Lib:
 
+1- pip -3 -m venv venv
 
+2- pip install flask
+
+3- pip install pycopg2
+
+4- python -m pip freez > requirments.txt
+
+5 - python app.py \ flask run
